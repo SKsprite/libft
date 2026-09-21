@@ -1,9 +1,11 @@
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-ar = ar rcs
+AR = ar rcs
+HEADER = libft.h
 
-SRC = .c
+SRC = ft_isalpha.c\
+	  ft_isdigit.c
 OBJ = $(SRC:.c=.o)
 
 RMF = rm -f
@@ -13,7 +15,7 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: $(HEADER) %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
