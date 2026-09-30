@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 18:34:09 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:00:54 by stkoh            ###   ########.fr       */
+/*   Created: 2026/09/30 17:08:22 by stkoh             #+#    #+#             */
+/*   Updated: 2026/09/30 17:19:20 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	d;
+	size_t	s;
+	int		i;
 
+	if (!dest || !src)
+		return ;
+	d = (size_t) dest;
+	s = (size_t) src;
 	i = 0;
-	if (n > 0)
+	if (d < s)
 	{
-		while (s[i])
+		while (i < n)
 		{
-			s[i] = c;
+			dest[i] = dest[i];
 			i++;
 		}
 	}
-	return (s);
+	else
+	{
+		while (n-- > -1)
+		{
+			dest[n] = dest[n];
+		}
+	}
+	return (dest);
 }

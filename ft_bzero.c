@@ -6,11 +6,13 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 18:34:09 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/21 18:41:23 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/09/30 17:02:34 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, int n)
+#include "libft.h"
+
+void	*ft_bzero(void *s, size_t n)
 {
 	int	i;
 

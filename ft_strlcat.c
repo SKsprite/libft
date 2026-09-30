@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 18:34:09 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:00:54 by stkoh            ###   ########.fr       */
+/*   Created: 2026/09/30 17:47:54 by stkoh             #+#    #+#             */
+/*   Updated: 2026/09/30 18:32:38 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	d_len;
+	size_t	s_len;
 
-	i = 0;
-	if (n > 0)
+	s_len = 0;
+	d_len = 0;
+	while (d_len < size && *dst)
 	{
-		while (s[i])
-		{
-			s[i] = c;
-			i++;
-		}
+		d_len++;
+		dst++;
 	}
-	return (s);
+	if (d_len == size)
+		return (size + ft_strlen(src));
+	while (*src && d_len + s_len + 1 < size)
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		s_len++;
+	}
+	while (*src)
+	{
+		s_len++;
+		src++;
+	}
+	*dst = '\0';
+	return (d_len + s_len);
 }

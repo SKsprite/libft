@@ -6,11 +6,13 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 18:28:59 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/21 18:31:58 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/09/30 17:18:04 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
