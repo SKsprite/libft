@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:51:08 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 15:55:14 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/04 17:03:14 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	len = ft_strlen(s);
+	i = 0;
 	ptr = malloc((len + 1) * sizeof(s));
 	if (!ptr)
 		return (NULL);

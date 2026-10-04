@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 18:23:54 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 17:08:32 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 19:46:15 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 19:53:57 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	nbr(int nb, int fd)
 {
-	return ((c >= ' ' && c < 127));
+	if (nb == 0)
+		return ;
+	nbr(nb / 10, fd);
+	ft_putstr_fd((char []){'0' + nb % 10, '\0'}, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n == 0)
+	{
+		ft_putstr_fd("0", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putstr_fd("-", fd);
+		n *= -1;
+	}
+	nbr(n, fd);
 }

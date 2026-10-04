@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 18:23:54 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 17:08:32 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 19:43:36 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 19:44:40 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	return ((c >= ' ' && c < 127));
+	size_t	len;
+
+	len = ft_strlen(s);
+	write(fd, s, len);
 }

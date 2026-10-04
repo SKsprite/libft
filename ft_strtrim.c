@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/04 15:20:10 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 18:07:21 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 18:49:32 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 20:05:31 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_sign(char c)
+int	c_in_set(char c, char const *set)
 {
-	return (c == '+' || c == '-');
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	long	nbr;
-	int		sign;
+	size_t	len;
+	size_t	start;
+	size_t	end;
+	char	*ptr;
 
-	nbr = 0;
-	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
+	len = ft_strlen(s1);
+	start = 0;
+	end = 0;
+	while (c_in_set(s1[start], set))
 	{
-		nptr++;
+		start++;
 	}
-	if (is_sign(nptr[0]))
+	while (c_in_set(s1[len - end], set))
 	{
-		if (nptr[0] == '-')
-			sign *= -1;
-		nptr++;
+		end++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		nbr *= 10;
-		nbr += *nptr - '0';
-		nptr++;
-	}
-	return (nbr * sign);
+	ptr = ft_substr(s1, start, (end - start));
+	if (!ptr)
+		return (NULL);
+	return (ptr);
 }

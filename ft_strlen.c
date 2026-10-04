@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 18:28:59 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:18:04 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/04 17:10:40 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[++i])
-		;
+	while (s[i])
+		i++;
 	return (i);
 }

@@ -6,43 +6,30 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 17:47:54 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 14:37:54 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/04 17:34:08 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	increment_address(char *dst, char *src, size_t *s_len)
-{
-	dst++;
-	src++;
-	s_len++;
-}
-
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	d_len;
 	size_t	s_len;
+	size_t	i;
 
-	s_len = 0;
 	d_len = 0;
-	while (d_len < size && *dst)
-	{
+	s_len = ft_strlen(src);
+	while (dst[d_len] && d_len < size)
 		d_len++;
-		dst++;
-	}
 	if (d_len == size)
-		return (size + ft_strlen(src));
-	while (*src && d_len + s_len + 1 < size)
+		return (size + s_len);
+	i = 0;
+	while (src[i] && (d_len + i + 1) < size)
 	{
-		*dst = *src;
-		increment_address(dst, src, &s_len);
+		dst[d_len + i] = src[i];
+		i++;
 	}
-	while (*src)
-	{
-		s_len++;
-		src++;
-	}
-	*dst = '\0';
+	dst[d_len + i] = '\0';
 	return (d_len + s_len);
 }

@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 14:38:44 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 14:43:17 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/04 17:44:50 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*returnptr;
-	size_t	str_len;
+	int				str_len;
+	unsigned char	target;
 
-	str_len = ft_strlen(s);
-	returnptr = s;
-	while (s[str_len] >= s)
+	target = (unsigned char) c;
+	str_len = (int)ft_strlen(s);
+	while (&s[str_len] >= s)
 	{
-		if (s[str_len] == c)
-			return (& s[str_len]);
+		if ((unsigned char) s[str_len] == target)
+			return ((char *) &s[str_len]);
+		str_len--;
 	}
+	if ((unsigned char) s[str_len] == target)
+		return ((char *) &s[str_len]);
 	return (NULL);
 }
