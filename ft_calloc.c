@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 17:20:18 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:43:13 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 15:47:56 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 15:50:05 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_calloc(size_t nmemb, size_t size)
 {
-	int	copied;
+	void	*ptr;
 
-	copied = 0;
-	while (copied < size - 1 && src[copied])
-	{
-		dst[copied] = src[copied];
-		copied++;
-	}
-	dst[copied] = '\0';
-	return (copied);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	return (ptr);
 }

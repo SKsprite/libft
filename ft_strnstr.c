@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 17:20:18 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:43:13 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 15:05:36 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 15:18:33 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	copied;
+	size_t	little_len;
+	size_t	i;
 
-	copied = 0;
-	while (copied < size - 1 && src[copied])
+	i = 0;
+	little_len = ft_strlen(little);
+	while (i + little_len < len)
 	{
-		dst[copied] = src[copied];
-		copied++;
+		if (ft_strncmp(big[i], little, little_len) == 0)
+			return (& big[i]);
+		i++;
 	}
-	dst[copied] = '\0';
-	return (copied);
+	return (NULL);
 }

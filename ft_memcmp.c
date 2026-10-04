@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 17:20:18 by stkoh             #+#    #+#             */
-/*   Updated: 2026/09/30 17:43:13 by stkoh            ###   ########.fr       */
+/*   Created: 2026/10/04 15:02:46 by stkoh             #+#    #+#             */
+/*   Updated: 2026/10/04 15:04:59 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	copied;
+	size_t	i;
 
-	copied = 0;
-	while (copied < size - 1 && src[copied])
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (s1[i] == s2[i] && i < n)
 	{
-		dst[copied] = src[copied];
-		copied++;
+		i++;
 	}
-	dst[copied] = '\0';
-	return (copied);
+	return (s1[i] - s2[i]);
 }
