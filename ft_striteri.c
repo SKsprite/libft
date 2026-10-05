@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 19:39:49 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 20:14:14 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/05 19:49:41 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	while (s[i])
 	{
 		f(i, &s[i]);
+		i++;
 	}
 }

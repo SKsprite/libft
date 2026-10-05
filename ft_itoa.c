@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 19:12:10 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 20:09:33 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/05 20:06:33 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	get_no_pos(long n)
 	size_t	len;
 
 	len = 0;
-	while (n > 10)
+	while (n >= 10)
 	{
 		len++;
 		n /= 10;
@@ -27,20 +27,22 @@ size_t	get_no_pos(long n)
 
 void	fill_itoa(long ln, size_t len, char *ptr)
 {
+	size_t	pos;
+
+	pos = len;
 	if (len > get_no_pos(ln))
 	{
 		ptr[0] = '-';
-		ptr++;
 	}
-	while (ln > 10)
+	ptr[pos] = '\0';
+	pos--;
+	while (ln >= 10)
 	{
-		*ptr = (ln / 10 * (get_no_pos(ln) - 1)) + '0';
+		ptr[pos] = (ln % 10) + '0';
 		ln /= 10;
-		ptr++;
+		pos--;
 	}
-	*ptr = (ln + '0');
-	ptr++;
-	*ptr = '\0';
+	ptr[pos] = (ln + '0');
 }
 
 char	*ft_itoa(int n)

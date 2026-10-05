@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 18:49:32 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 20:05:31 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/05 20:05:41 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		start++;
 	}
-	while (c_in_set(s1[len - end], set))
+	while (c_in_set(s1[len - end - 1], set))
 	{
 		end++;
 	}
-	ptr = ft_substr(s1, start, (end - start));
+	ptr = ft_substr(s1, start, (len - (end + start)));
 	if (!ptr)
 		return (NULL);
 	return (ptr);
