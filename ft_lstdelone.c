@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 17:47:12 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/06 19:16:11 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/06 19:59:32 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
+	if (!lst || !del)
 		return ;
-	if (del)
-		del(lst->content);
+	del(lst->content);
 	free(lst);
 }
