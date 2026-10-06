@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 18:34:31 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/05 19:48:07 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/06 17:35:19 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while (i < remaining && s[start + i])
 	{
-		result[i] = s[start+i];
+		result[i] = s[start + i];
 		i++;
 	}
 	result[i] = '\0';

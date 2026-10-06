@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 19:46:15 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 19:53:57 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/06 17:35:59 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	nbr(int nb, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);

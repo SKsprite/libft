@@ -6,7 +6,7 @@
 /*   By: stkoh <stkoh@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 19:43:36 by stkoh             #+#    #+#             */
-/*   Updated: 2026/10/04 19:44:40 by stkoh            ###   ########.fr       */
+/*   Updated: 2026/10/06 17:24:03 by stkoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	len;
-
-	len = ft_strlen(s);
-	write(fd, s, len);
+	if (!s || fd < 0)
+		return ;
+	write(fd, s, ft_strlen(s));
 }
